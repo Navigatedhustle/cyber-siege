@@ -36,7 +36,8 @@ def main():
     if dest==ROOT or ROOT in dest.parents:
         raise SystemExit('Release output must be outside the working repository.')
     dest.mkdir(parents=True,exist_ok=True)
-    tree=dest/'cyber-siege-v1.0.0'
+    version=json.loads((ROOT/'config/distribution-files.json').read_text())['version']
+    tree=dest/('cyber-siege-v'+version)
     if tree.exists():
         raise SystemExit('Use a new output directory; existing snapshots are preserved.')
     tree.mkdir()

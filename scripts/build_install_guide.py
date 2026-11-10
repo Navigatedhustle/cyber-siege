@@ -41,11 +41,11 @@ class Manual(BaseDocTemplate):
 
 def footer(canvas, doc):
     canvas.saveState()
-    canvas.setTitle('Cyber Siege - Fresh Fury Installation and Launch Guide v1.0.0')
+    canvas.setTitle('Cyber Siege - Fresh Fury Installation and Launch Guide v1.0.1')
     canvas.setAuthor('Carlos Sanchez')
     canvas.setFont('Helvetica',8)
     canvas.setFillColor(colors.HexColor('#526174'))
-    canvas.drawString(MARGIN,25,'CYBER SIEGE  |  v1.0.0  |  Fresh Fury guide')
+    canvas.drawString(MARGIN,25,'CYBER SIEGE  |  v1.0.1  |  Fresh Fury guide')
     canvas.drawRightString(WIDTH-MARGIN,25,str(doc.page))
     canvas.setStrokeColor(colors.HexColor('#CFD9E5'))
     canvas.line(MARGIN,38,WIDTH-MARGIN,38)
@@ -68,11 +68,11 @@ def main():
     subtitle=ParagraphStyle('ManualSubtitle',parent=body,fontSize=14,leading=20,spaceAfter=22)
     story=[Spacer(1,70),Paragraph('CYBER SIEGE',title),
            Paragraph('Fresh Fury installation<br/>and launch guide',subtitle),
-           Paragraph('Release 1.0.0 | 10 November 2026',body),
+           Paragraph('Release 1.0.1 | 10 November 2026',body),
            Paragraph('Install from GitHub, launch the local AI experience, connect private '
                      'devices, resolve proxy routing, run the story and switch demos safely.',body),
            Spacer(1,25),Paragraph('Copy. Paste. Launch.',heading),
-           Preformatted('git clone --branch v1.0.0 \\\n  https://github.com/Navigatedhustle/cyber-siege.git\ncd cyber-siege\n./launch.sh',code),
+           Preformatted('git clone --branch v1.0.1 \\\n  https://github.com/Navigatedhustle/cyber-siege.git\ncd cyber-siege\n./launch.sh',code),
            Paragraph('On the Fury: <link href="http://127.0.0.1:8090/" color="#004BDF">'
                      'http://127.0.0.1:8090/</link><br/>Then click <b>Start the story</b>.',body),
            Paragraph('Read prerequisites first. The host needs Ubuntu 24.04 ARM64, GB300, '

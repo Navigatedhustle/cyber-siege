@@ -1,10 +1,10 @@
 # Cyber Siege: fresh Fury installation and launch guide
 
-Release 1.0.0 | 10 November 2026 | Prepared for HP sellers and technical operators
+Release 1.0.1 | 10 November 2026 | Prepared for HP sellers and technical operators
 
 Source: https://github.com/Navigatedhustle/cyber-siege
 
-Release assets: https://github.com/Navigatedhustle/cyber-siege/releases/tag/v1.0.0
+Release assets: https://github.com/Navigatedhustle/cyber-siege/releases/tag/v1.0.1
 
 ## 1. What you are installing
 
@@ -31,6 +31,8 @@ Fury is an AI computing platform, not a security product that stops breaches by 
 Use the tested Ubuntu 24.04 ARM64 HP ZGX Fury with one NVIDIA GB300. The qualified
 GPU reports approximately 256703 MiB HBM. This release does not claim compatibility
 with a smaller GPU, a Windows host, an x86 workstation or an arbitrary cloud VM.
+The qualified host used NVIDIA driver 595.99.02; have IT confirm that the installed
+driver supports the pinned containers before installing on a different Fury.
 
 Reserve at least 400 GiB initial free disk for model weights, serving images,
 environments and runtime caches. Both models stay resident in the qualified profile;
@@ -85,7 +87,7 @@ approved Docker access procedure, then sign in again if group membership changed
 On the Fury, copy these lines into a terminal:
 
 ```bash
-git clone --branch v1.0.0 \
+git clone --branch v1.0.1 \
   https://github.com/Navigatedhustle/cyber-siege.git
 cd cyber-siege
 ./launch.sh
@@ -117,13 +119,13 @@ Download all three named files below into that directory:
 
 ```bash
 base=https://github.com/Navigatedhustle/cyber-siege
-base=$base/releases/download/v1.0.0
-curl -fL "$base/cyber-siege-v1.0.0.zip" -O
-curl -fL "$base/cyber-siege-v1.0.0.tar.gz" -O
+base=$base/releases/download/v1.0.1
+curl -fL "$base/cyber-siege-v1.0.1.zip" -O
+curl -fL "$base/cyber-siege-v1.0.1.tar.gz" -O
 curl -fL "$base/SHA256SUMS" -O
 sha256sum --ignore-missing -c SHA256SUMS
-python3 -m zipfile -e cyber-siege-v1.0.0.zip .
-cd cyber-siege-v1.0.0
+python3 -m zipfile -e cyber-siege-v1.0.1.zip .
+cd cyber-siege-v1.0.1
 sha256sum -c SOURCE_SHA256SUMS
 chmod +x launch.sh siege scripts/*.sh
 chmod +x scripts/container-bin/docker vendor/infinity/run.sh
@@ -516,7 +518,7 @@ is required for that routing defect.
 ## 19. Source and reference links
 
 - Cyber Siege source: https://github.com/Navigatedhustle/cyber-siege
-- Release and all downloadable assets: https://github.com/Navigatedhustle/cyber-siege/releases/tag/v1.0.0
+- Release and all downloadable assets: https://github.com/Navigatedhustle/cyber-siege/releases/tag/v1.0.1
 - NVIDIA Nemotron model: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4
 - OpenAI GPT OSS model: https://huggingface.co/openai/gpt-oss-120b
 - Tailscale Serve: https://tailscale.com/docs/features/tailscale-serve

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [".env.example", ".gitignore", "README.md", "Makefile", "models.yaml", "pytest.ini", "requirements.txt", "requirements.lock", "requirements-relay.txt", "siege", "launch.sh", "NOTICE.md"],
   "trees": ["app", "revamp", "scenario", "scripts", "static", "web", "tests", "vendor", "data", "content"],
   "config_files": ["config/hp_resources.json", "config/hp_zgx_differentiators.json", "config/local_ai_story_sources.json", "config/sourced_stats.json", "config/stories.example.json", "config/model-images.sh", "config/distribution-files.json"],

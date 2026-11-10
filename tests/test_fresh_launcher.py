@@ -8,6 +8,23 @@ launcher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(launcher)
 
 
+@pytest.mark.parametrize('message',['error: no such object: missing','Error: No such container: missing'])
+def test_absent_container_is_normal_on_fresh_install_and_after_stop(monkeypatch,message):
+    import subprocess
+    def missing(*args,**kwargs):
+        raise subprocess.CalledProcessError(1,'docker inspect',output='[]\n',stderr=message)
+    monkeypatch.setattr(launcher,'docker',missing)
+    assert launcher.inspect('missing') is None
+
+
+def test_docker_access_failure_is_not_mistaken_for_an_absent_container(monkeypatch):
+    import subprocess
+    def denied(*args,**kwargs):
+        raise subprocess.CalledProcessError(1,'docker inspect',stderr='permission denied')
+    monkeypatch.setattr(launcher,'docker',denied)
+    with pytest.raises(subprocess.CalledProcessError):launcher.inspect('missing')
+
+
 def test_container_name_alone_does_not_prove_ownership():
     assert not launcher.owned_container({'Name':'/hp-nemotron-serve', 'Mounts':[]})
     assert not launcher.owned_container({'Name':'/cyber-siege-challenger', 'Mounts':[], 'Config':{'Labels':{'cyber-siege.repo':str(launcher.ROOT)}}})

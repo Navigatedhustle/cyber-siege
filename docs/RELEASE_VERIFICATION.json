@@ -1,17 +1,17 @@
 {
-  "release": "1.0.0",
+  "release": "1.0.1",
   "date_utc": "2026-11-10",
   "status": "passed within the stated scope",
   "source_regression": {
-    "passed": 74,
-    "duration_seconds": 21.18
+    "passed": 77,
+    "duration_seconds": 21.14
   },
   "clean_source_install": {
     "new_independent_virtual_environment": true,
     "locked_dependencies_installed": true,
     "pip_check_passed": true,
-    "tests_passed": 74,
-    "test_duration_seconds": 20.8,
+    "tests_passed": 77,
+    "test_duration_seconds": 20.67,
     "browser": {
       "passed": true,
       "checks": [
@@ -69,8 +69,10 @@
     "default_launch_passed": true,
     "pinned_model_download_and_immutable_image_pull_verified": true,
     "model_identity_checks_passed": true,
-    "ownership_guard_tests_passed": 8,
-    "scope": "Existing model cache and running qualified containers on the original GB300; no second model stack created"
+    "ownership_guard_tests_passed": 11,
+    "scope": "Existing model cache and running qualified containers on the original GB300; no second model stack created",
+    "actual_empty_container_preflight_passed": true,
+    "actual_idempotent_stop_passed": true
   },
   "guide": {
     "pages": 10,
@@ -95,5 +97,11 @@
     "Clean source/dependency install and actual story/card were verified on this same GB300 using existing model endpoints; an uncached full model download on a second physical Fury was not performed.",
     "The original managed HP laptop requires HP IT to update its Zscaler PAC for direct private-host routing; browser acceptance there is pending.",
     "Physical venue devices/Wi-Fi, WebKit on the 64KiB kernel and the historical 60fps target are not certified."
-  ]
+  ],
+  "patch_notes": {
+    "version": "1.0.1",
+    "fix": "Treat case-insensitive Docker no-such-object/container responses as the normal absent state on fresh install and after shutdown. Preserve real Docker permission failures.",
+    "regression_proof": "Both Docker message forms, permission error propagation and actual empty-stack preflight/idempotent shutdown verified.",
+    "browser_scope": "Prior clean-environment live browser/PDF proof is retained; the patch changes only launcher inspection and distribution versioning."
+  }
 }

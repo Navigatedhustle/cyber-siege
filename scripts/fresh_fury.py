@@ -46,7 +46,8 @@ def inspect(name):
     try:
         return json.loads(docker(['inspect', name]))[0]
     except subprocess.CalledProcessError as e:
-        if 'No such' in (e.stderr or ''):
+        detail=((e.stderr or '') + (e.stdout or '')).casefold()
+        if 'no such object' in detail or 'no such container' in detail:
             return None
         raise
 
