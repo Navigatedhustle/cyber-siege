@@ -1,0 +1,353 @@
+{
+  "alert": "identity",
+  "recorded_at": "2026-11-09T15:07:41.690513+00:00",
+  "session_label": "REHEARSAL",
+  "result": {
+    "data": {
+      "events": [
+        {
+          "explanation": "Email with suspicious attachment delivered to user inbox.",
+          "log_ids": [
+            "EML9001"
+          ]
+        },
+        {
+          "explanation": "User opened HTML attachment from email, enabling token access.",
+          "log_ids": [
+            "EDR9001"
+          ]
+        },
+        {
+          "explanation": "Browser session tokens were accessed after attachment opened.",
+          "log_ids": [
+            "EDR9002"
+          ]
+        },
+        {
+          "explanation": "Stolen session data sent to suspicious domain via HTTPS POST.",
+          "log_ids": [
+            "NET9001"
+          ]
+        },
+        {
+          "explanation": "Attacker signed in from Netherlands using stolen session without MFA.",
+          "log_ids": [
+            "IDP9001"
+          ]
+        },
+        {
+          "explanation": "Attacker accessed finance confidential directory from external IP.",
+          "log_ids": [
+            "FIL9001"
+          ]
+        },
+        {
+          "explanation": "Attacker performed bulk download of files using same session.",
+          "log_ids": [
+            "FIL9002"
+          ]
+        }
+      ],
+      "summary": "Email delivery led to attachment opening, token theft, exfiltration, unauthorized sign-in, and finance data download.",
+      "summary_log_ids": [
+        "EML9001",
+        "EDR9001",
+        "EDR9002",
+        "NET9001",
+        "IDP9001",
+        "FIL9001",
+        "FIL9002"
+      ]
+    },
+    "model": "hero",
+    "model_name": "Nemotron 3 Super",
+    "lab": "NVIDIA",
+    "latency_seconds": 1.1935768330004066,
+    "usage": {
+      "prompt_tokens": 4639,
+      "total_tokens": 4974,
+      "completion_tokens": 335,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "cached": false
+  },
+  "events": [
+    {
+      "elapsed": 0.17926451400853693,
+      "data": {
+        "agent": "identity",
+        "status": "started",
+        "query": "identity: source and 36 hour window; m.brooks, session and network anomalies; starting alert identity",
+        "events_scanned": 1202
+      }
+    },
+    {
+      "elapsed": 0.18322505801916122,
+      "data": {
+        "agent": "data_access",
+        "status": "started",
+        "query": "data_access: source and 36 hour window; m.brooks, session and network anomalies; starting alert identity",
+        "events_scanned": 1204
+      }
+    },
+    {
+      "elapsed": 0.18828317907173187,
+      "data": {
+        "agent": "endpoint",
+        "status": "started",
+        "query": "endpoint: source and 36 hour window; m.brooks, session and network anomalies; starting alert identity",
+        "events_scanned": 2403
+      }
+    },
+    {
+      "elapsed": 0.1921988260000944,
+      "data": {
+        "agent": "email",
+        "status": "started",
+        "query": "email: source and 36 hour window; m.brooks, session and network anomalies; starting alert identity",
+        "events_scanned": 1202
+      }
+    },
+    {
+      "elapsed": 7.0337768730241805,
+      "data": {
+        "agent": "identity",
+        "status": "finding",
+        "finding": {
+          "summary": "User m.brooks signed in from Netherlands using session cookie without MFA on unmanaged host, indicating possible session theft.",
+          "log_ids": [
+            "IDP9001"
+          ],
+          "confidence": "medium"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.036334494012408,
+      "data": {
+        "agent": "identity",
+        "status": "finding",
+        "finding": {
+          "summary": "User a.patel signed in from Singapore with approved travel ticket and managed device, showing legitimate remote access.",
+          "log_ids": [
+            "IDP9002"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.038801042013802,
+      "data": {
+        "agent": "identity",
+        "status": "finding",
+        "finding": {
+          "summary": "Multiple successful MFA-satisfied sign-ins by m.brooks from UK on managed host during business hours, consistent with normal activity.",
+          "log_ids": [
+            "IDP0148",
+            "IDP0527",
+            "IDP0794",
+            "IDP1018",
+            "IDP1166",
+            "IDP0528"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.0413036220707,
+      "data": {
+        "agent": "identity",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 230
+      }
+    },
+    {
+      "elapsed": 7.727825176087208,
+      "data": {
+        "agent": "email",
+        "status": "finding",
+        "finding": {
+          "summary": "Email from suspicious domain harb0rparts.example (zero instead of o) with HTML attachment, different sender IP, and revised invoice subject.",
+          "log_ids": [
+            "EML9001"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.7303895810619,
+      "data": {
+        "agent": "email",
+        "status": "finding",
+        "finding": {
+          "summary": "Legitimate invoices from known suppliers harborparts.example and summitcomponents.example with PDF attachments, consistent user and internal IP.",
+          "log_ids": [
+            "EML0230",
+            "EML0026",
+            "EML0039",
+            "EML0575",
+            "EML0940",
+            "EML1002",
+            "EML9002"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.732847681036219,
+      "data": {
+        "agent": "email",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 208
+      }
+    },
+    {
+      "elapsed": 8.157844347064383,
+      "data": {
+        "agent": "data_access",
+        "status": "finding",
+        "finding": {
+          "summary": "User m.brooks accessed finance confidential directory from external IP 198.51.100.77, then performed bulk download of 428 files (2.7 GB) using same session ID.",
+          "log_ids": [
+            "FIL9001",
+            "FIL9002"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.160349935060367,
+      "data": {
+        "agent": "data_access",
+        "status": "finding",
+        "finding": {
+          "summary": "User m.brooks read multiple dispatch CSV files from shared operations folder during evening hours on 2026-11-15.",
+          "log_ids": [
+            "FIL0844",
+            "FIL1143",
+            "FIL0209",
+            "FIL0111"
+          ],
+          "confidence": "low"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.162857668008655,
+      "data": {
+        "agent": "data_access",
+        "status": "finding",
+        "finding": {
+          "summary": "Scheduled backup by svc_backup completed successfully within window; analytics_job exported large file from approved location with ticket.",
+          "log_ids": [
+            "FIL9005",
+            "FIL9004"
+          ],
+          "confidence": "low"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.165336280013435,
+      "data": {
+        "agent": "data_access",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 404
+      }
+    },
+    {
+      "elapsed": 8.224043632042594,
+      "data": {
+        "agent": "endpoint",
+        "status": "finding",
+        "finding": {
+          "summary": "User opened an HTML attachment from email and browser session tokens were accessed shortly after, indicating possible credential theft via malicious invoice.",
+          "log_ids": [
+            "EDR9001",
+            "EDR9002"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.22676730202511,
+      "data": {
+        "agent": "endpoint",
+        "status": "finding",
+        "finding": {
+          "summary": "After token access, an HTTPS POST was made to a suspicious domain login.harb0rparts.example, likely exfiltrating stolen session data.",
+          "log_ids": [
+            "EDR9002",
+            "NET9001"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.229237914085388,
+      "data": {
+        "agent": "endpoint",
+        "status": "finding",
+        "finding": {
+          "summary": "Multiple routine explorer.exe start events occurred during user session, consistent with normal Windows shell activity after logon.",
+          "log_ids": [
+            "EDR1169",
+            "EDR0393",
+            "EDR0395",
+            "EDR0332"
+          ],
+          "confidence": "low"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.231727630016394,
+      "data": {
+        "agent": "endpoint",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 302
+      }
+    },
+    {
+      "elapsed": 8.234965512063354,
+      "data": {
+        "agent": "lead",
+        "status": "started",
+        "query": "Connect verified specialist findings"
+      }
+    },
+    {
+      "elapsed": 13.992656112997793,
+      "data": {
+        "agent": "lead",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 335
+      }
+    }
+  ]
+}

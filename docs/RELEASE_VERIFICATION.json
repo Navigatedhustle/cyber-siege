@@ -1,0 +1,99 @@
+{
+  "release": "1.0.0",
+  "date_utc": "2026-11-10",
+  "status": "passed within the stated scope",
+  "source_regression": {
+    "passed": 74,
+    "duration_seconds": 21.18
+  },
+  "clean_source_install": {
+    "new_independent_virtual_environment": true,
+    "locked_dependencies_installed": true,
+    "pip_check_passed": true,
+    "tests_passed": 74,
+    "test_duration_seconds": 20.8,
+    "browser": {
+      "passed": true,
+      "checks": [
+        {
+          "viewport": [
+            1920,
+            1080
+          ],
+          "horizontal_overflow": false,
+          "reset_restart_visible": true
+        },
+        {
+          "viewport": [
+            1366,
+            768
+          ],
+          "horizontal_overflow": false,
+          "reset_restart_visible": true
+        },
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "horizontal_overflow": false,
+          "reset_restart_visible": true
+        },
+        {
+          "viewport": [
+            360,
+            800
+          ],
+          "horizontal_overflow": false,
+          "reset_restart_visible": true
+        }
+      ],
+      "cloud_lane": "Scripted customer policy, no cloud request, no blanket provider refusal",
+      "cloud_log_preflight_then_denied": true,
+      "capacity_message": "Planning case, no scarcity prediction",
+      "one_deploy_per_incident": true,
+      "five_automatic_roles": true,
+      "human_handoff_scoped_to_demo": true,
+      "independent_reset": true,
+      "pdf_download_and_resume": true,
+      "reduced_motion_toggle_and_OS": true,
+      "console_errors": [],
+      "runtime_requests_local_only": true,
+      "clock_scale": 0.25,
+      "physical_devices_tested": false
+    },
+    "account_card": "Standard and maximum-fields/approved-story PDF checks passed"
+  },
+  "launcher": {
+    "doctor_passed": true,
+    "default_launch_passed": true,
+    "pinned_model_download_and_immutable_image_pull_verified": true,
+    "model_identity_checks_passed": true,
+    "ownership_guard_tests_passed": 8,
+    "scope": "Existing model cache and running qualified containers on the original GB300; no second model stack created"
+  },
+  "guide": {
+    "pages": 10,
+    "selectable_text": true,
+    "word_bounds_checked": true,
+    "rendered_pages_reviewed": true
+  },
+  "source_snapshot": {
+    "runtime_credentials_databases_weights_environments_excluded": true,
+    "private_history_preserved_separately": true,
+    "explicit_manifest": "config/distribution-files.json"
+  },
+  "previous_story_load": {
+    "people": 60,
+    "websocket_rtt_p95_ms": 88.28,
+    "model_p95_seconds": 0.763,
+    "fallbacks": 0,
+    "actual_coalesced_model_calls": 15,
+    "scope": "Prior accelerated server/protocol qualification, not a fresh physical-device attendance test"
+  },
+  "limits": [
+    "Clean source/dependency install and actual story/card were verified on this same GB300 using existing model endpoints; an uncached full model download on a second physical Fury was not performed.",
+    "The original managed HP laptop requires HP IT to update its Zscaler PAC for direct private-host routing; browser acceptance there is pending.",
+    "Physical venue devices/Wi-Fi, WebKit on the 64KiB kernel and the historical 60fps target are not certified."
+  ]
+}

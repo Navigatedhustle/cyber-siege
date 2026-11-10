@@ -1,0 +1,151 @@
+{
+  "verified_on": "2026-11-09",
+  "product": "HP ZGX Fury AI station / NVIDIA GB300",
+  "sources": [
+    {
+      "id": "hardware",
+      "title": "HP hardware specifications",
+      "url": "https://www.hp.com/us-en/workstations/ai-stations/zgx-fury-ai-station.html"
+    },
+    {
+      "id": "software",
+      "title": "HP ZTK + Z Runtime",
+      "url": "https://www.hp.com/us-en/workstations/ai-stations/zgx-ai-stations-software.html"
+    },
+    {
+      "id": "rhel",
+      "title": "Red Hat certification catalog",
+      "url": "https://catalog.redhat.com/en/hardware/system/detail/318527"
+    },
+    {
+      "id": "redhat_hp",
+      "title": "HP / Red Hat announcement",
+      "url": "https://www.hp.com/us-en/newsroom/press-releases/2026/hp-extends-data-center-ai-architecture-to-the-edge.html"
+    },
+    {
+      "id": "cert_scope",
+      "title": "Red Hat hardware certification scope",
+      "url": "https://access.redhat.com/support/offerings/hwcert"
+    }
+  ],
+  "benefits_are": "Seller discovery interpretations of verified features, not measured customer outcomes or exclusive claims against competing hardware.",
+  "items": [
+    {
+      "id": "gb300",
+      "title": "GB300 compute + large memory",
+      "feature": "Up to 20 PFLOPS FP4; 748 GB coherent memory.",
+      "benefit": "Fit larger models and richer context locally; validate precision and workload.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "rack",
+      "title": "Rackable, liquid-cooled design",
+      "feature": "Rack-mountable with front-to-back airflow.",
+      "benefit": "Place shared AI in a managed rack or near your team.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "shared",
+      "title": "Shared AI for multiple users",
+      "feature": "Concurrent users and AI workloads on one system.",
+      "benefit": "Share one local investment across teams; validate workload concurrency.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "scale",
+      "title": "Room to grow",
+      "feature": "Link two systems; two 400 Gbps QSFP112 ports.",
+      "benefit": "Add model capacity as needs grow; confirm supported networking and software.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "ztk",
+      "title": "HP Z Toolkit (ZTK) \u00b7 develop",
+      "feature": "VS Code discovery, pairing and open-source setup.",
+      "benefit": "Reduce setup friction while developers use familiar VS Code workflows.",
+      "sources": [
+        "software"
+      ]
+    },
+    {
+      "id": "zrt",
+      "title": "HP Z Runtime \u00b7 deploy",
+      "feature": "Preinstalled CLI to pull, serve and monitor models.",
+      "benefit": "Move models into local inference services and connect business applications.",
+      "sources": [
+        "software"
+      ]
+    },
+    {
+      "id": "rhel",
+      "title": "Red Hat Enterprise Linux certified",
+      "feature": "RHEL hardware certification; verify the catalog.",
+      "benefit": "Use a validated enterprise Linux support path; confirm OS, SKU and subscription.",
+      "sources": [
+        "rhel",
+        "redhat_hp",
+        "cert_scope"
+      ]
+    },
+    {
+      "id": "stack",
+      "title": "Ready NVIDIA developer stack",
+      "feature": "Ubuntu 24.04 LTS, drivers, CUDA and container tools.",
+      "benefit": "Reduce initial setup work with a prepared AI development environment.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "manage",
+      "title": "Dedicated management connectivity",
+      "feature": "BMC network and console connections.",
+      "benefit": "Administer shared compute in racks or separate equipment rooms.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "storage",
+      "title": "Fast local storage options",
+      "feature": "2 or 4 TB NVMe; self-encrypting storage options.",
+      "benefit": "Keep evidence close; configure encryption and key management for your policies.",
+      "sources": [
+        "hardware"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "Control data and capacity locally",
+      "feature": "On-prem inference on dedicated infrastructure.",
+      "benefit": "Control data placement and budget capacity, including energy, licenses and operations.",
+      "sources": [
+        "hardware",
+        "redhat_hp"
+      ]
+    },
+    {
+      "id": "open",
+      "title": "Open tools and model choice",
+      "feature": "Open-source tools; public and private model repos.",
+      "benefit": "Choose appropriate models and evolve workflows beyond a single model API.",
+      "sources": [
+        "software"
+      ]
+    }
+  ],
+  "qualifications": [
+    "FP4 is HP\u2019s published peak, not this demo\u2019s measured performance. Model size, precision and concurrency affect results.",
+    "Dedicated 200\u2013240V AC required. Validate rack, cooling, power and network requirements; options and storage must be configured when ordering.",
+    "ZTK client requires x86 Windows 11 or Ubuntu 24.04+ and VS Code; availability and model access vary.",
+    "RHEL certification is configuration-specific, not certification of this game or every AI workload. Subscriptions and support terms require confirmation; Red Hat AI Factory integration is described as planned in HP\u2019s announcement."
+  ]
+}

@@ -1,0 +1,11 @@
+status: draft
+industry: Healthcare and life sciences
+use_case: Explore local search across approved clinical operations documents.
+buyer: Clinical operations lead or research IT architect
+questions:
+- Where do staff lose time finding approved information?
+- Which data would require extra access controls?
+- Who would select a safe document set for an evaluation?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

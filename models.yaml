@@ -1,0 +1,53 @@
+models:
+  hero:
+    name: Nemotron 3 Super
+    lab: NVIDIA
+    model_id: nemotron-3-super
+    base_url: http://127.0.0.1:8000/v1
+    metrics_url: http://127.0.0.1:8000/metrics
+    serving_stack: HP plus Infinity · TensorRT LLM
+    parameters: 120B total, 12B active
+    concurrency_cap: 16
+    max_tokens: 900
+    request_timeout_seconds: 30
+    reasoning: false
+    structured_output: json_object
+    roles:
+    - identity
+    - email
+    - endpoint
+    - data_access
+    - lead
+    - twist_check
+    - card_polish
+    - overdrive
+    gate_file: runtime/gates/hero.json
+    reasoning_by_role:
+      identity: false
+      email: false
+      endpoint: false
+      data_access: false
+      lead: false
+      twist_check: false
+      card_polish: false
+      overdrive: false
+    metrics_source: app_usage
+  challenger:
+    name: GPT OSS 120B
+    lab: OpenAI
+    model_id: openai/gpt-oss-120b
+    base_url: http://127.0.0.1:8001/v1
+    metrics_url: http://127.0.0.1:8001/metrics
+    serving_stack: NVIDIA vLLM
+    parameters: 117B total, 5.1B active
+    concurrency_cap: 8
+    max_tokens: 900
+    request_timeout_seconds: 30
+    reasoning: low
+    structured_output: json_schema
+    roles:
+    - twist_check
+    - overdrive
+    gate_file: runtime/gates/challenger.json
+    gpu_memory_utilization: 0.32
+    metrics_source: server_counter

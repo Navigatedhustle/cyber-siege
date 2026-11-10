@@ -1,0 +1,11 @@
+status: draft
+industry: Energy and utilities
+use_case: Explore local search of approved maintenance procedures.
+buyer: Asset operations lead or infrastructure architect
+questions:
+- Which procedure searches slow down operations?
+- Which records would need a controlled evaluation environment?
+- Who would judge the accuracy of the answers?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

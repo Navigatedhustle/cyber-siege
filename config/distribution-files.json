@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "files": [".env.example", ".gitignore", "README.md", "Makefile", "models.yaml", "pytest.ini", "requirements.txt", "requirements.lock", "requirements-relay.txt", "siege", "launch.sh", "NOTICE.md"],
+  "trees": ["app", "revamp", "scenario", "scripts", "static", "web", "tests", "vendor", "data", "content"],
+  "config_files": ["config/hp_resources.json", "config/hp_zgx_differentiators.json", "config/local_ai_story_sources.json", "config/sourced_stats.json", "config/stories.example.json", "config/model-images.sh", "config/distribution-files.json"],
+  "docs": ["ARCHITECTURE.md", "ACCOUNT_CARD_DIFFERENTIATORS.md", "BRAND_ASSETS.md", "FACILITATOR_GUIDE.md", "GUIDED_STORY.md", "ROOM_SETUP.md", "SINGLE_EXPERIENCE.md", "SHARED_ARCHITECTURE.md", "V1_ARCHITECTURE.md", "V1_README.md", "FRESH_FURY_GUIDE.md", "FRESH_FURY_GUIDE.pdf", "RELEASE_VERIFICATION.json"],
+  "screenshot_trees": ["docs/screenshots/guided", "docs/screenshots/single", "docs/screenshots/revamp"],
+  "excluded_files": ["content/customer_story.md"],
+  "excluded_parts": ["__pycache__", ".pytest_cache", "node_modules"],
+  "excluded_suffixes": [".pyc", ".sqlite3", ".log", ".mp4", ".webm"]
+}

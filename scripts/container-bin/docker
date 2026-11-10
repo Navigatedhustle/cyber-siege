@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+"""Per-container GPU fallback for a host without NVIDIA's Docker runtime.
+
+Only enabled explicitly. No daemon changes. Vendor run.sh still owns its container.
+Expose the selected physical device and bind installed host compute driver libraries.
+"""
+import glob
+import os
+import subprocess
+import sys
+
+args=sys.argv[1:]
+if os.environ.get('CYBER_GPU_DIRECT')=='1' and args and args[0]=='run' and '--gpus' in args:
+    at=args.index('--gpus')
+    if args[at+1] not in ('device=0','all'):
+        raise SystemExit('Direct GPU wrapper supports only this machine GPU 0')
+    del args[at:at+2]
+    extra=[]
+    for device in ('/dev/nvidia0','/dev/nvidiactl','/dev/nvidia-uvm','/dev/nvidia-uvm-tools'):
+        if os.path.exists(device): extra+=['--device',device]
+    for pattern in ('libcuda.so*','libnvidia-ml.so*','libnvidia-ptxjitcompiler.so*','libnvidia-nvvm.so*','libnvidia-gpucomp.so*','libnvidia-tileiras.so*'):
+        for path in glob.glob('/usr/lib/aarch64-linux-gnu/'+pattern):
+            extra+=['--mount',f'type=bind,src={os.path.realpath(path)},dst=/usr/local/nvidia/lib64/{os.path.basename(path)},readonly']
+    args[1:1]=extra
+os.execv('/usr/bin/docker',['docker',*args])

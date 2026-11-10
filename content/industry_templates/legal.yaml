@@ -1,0 +1,11 @@
+status: draft
+industry: Legal and professional services
+use_case: Explore local review of approved internal knowledge documents.
+buyer: Knowledge management lead or IT director
+questions:
+- Which internal research questions repeat across teams?
+- Which documents have confidentiality restrictions?
+- Who would define a safe test and review its answers?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

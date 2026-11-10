@@ -1,0 +1,36 @@
+{
+  "verified_on": "2026-11-09",
+  "sources": [
+    {
+      "title": "Authorized defensive cybersecurity",
+      "publisher": "OpenAI Developers",
+      "url": "https://developers.openai.com/blog/scaling-cyber-defenders-with-daybreak",
+      "supports": "General-purpose/frontier models can support authorized defensive investigations and patch validation."
+    },
+    {
+      "title": "Cybersecurity safeguards",
+      "publisher": "OpenAI Developers",
+      "url": "https://developers.openai.com/api/docs/guides/safety-checks/cybersecurity",
+      "supports": "Some legitimate defensive requests may be flagged; this does not establish universal refusal."
+    },
+    {
+      "title": "Cloud enterprise data controls",
+      "publisher": "OpenAI Developers",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "supports": "Eligible customers can configure retention controls. Local inference should not be presented as the only possible privacy control."
+    },
+    {
+      "title": "Cloud API limits and capacity options",
+      "publisher": "OpenAI Developers",
+      "url": "https://developers.openai.com/api/docs/guides/rate-limits",
+      "supports": "APIs can have quotas and transient overload responses; enterprise capacity tiers are also available. This does not support an inevitable cloud scarcity prediction."
+    },
+    {
+      "title": "HP ZGX Fury",
+      "publisher": "HP",
+      "url": "https://www.hp.com/us-en/workstations/ai-stations/zgx-fury-ai-station.html",
+      "supports": "Fury is positioned for shared local AI development, inference and agentic workloads."
+    }
+  ],
+  "comparison_policy": "Cloud lane is a timed scripted fictional customer-policy request check, then scenario DENIED. No cloud API call, evidence upload or fabricated provider result. Local evidence analysis is real; city recovery and human queue are explicitly simulated. Capacity planning is a customer-specific evaluation, not a prediction of inevitable cloud scarcity or guaranteed local availability."
+}

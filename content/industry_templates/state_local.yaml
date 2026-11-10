@@ -1,0 +1,11 @@
+status: draft
+industry: State and local government
+use_case: Explore local search of internal service procedures.
+buyer: Agency IT director or service operations lead
+questions:
+- Which service questions take the most staff time?
+- Which records need to stay within agency systems?
+- Who would help choose a useful evaluation workflow?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

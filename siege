@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+"""Safe local lifecycle. Never changes models, networking or existing v1 service."""
+import json
+import os
+from pathlib import Path
+import signal
+import subprocess
+import sys
+import time
+from urllib.request import Request, build_opener, ProxyHandler, HTTPCookieProcessor
+from http.cookiejar import CookieJar
+ROOT=Path(__file__).resolve().parent
+DATA=ROOT/'runtime/revamp'
+PID=DATA/'managed-process.json'
+BASE='http://127.0.0.1:8090'
+
+def started(pid):
+    return Path(f'/proc/{pid}/stat').read_text().split()[21]
+
+def alive():
+    try:
+        rec=json.loads(PID.read_text());pid=rec['pid']
+        args=Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')
+        return pid if started(pid)==rec['start_ticks'] and b'revamp' in args and Path(f'/proc/{pid}/cwd').resolve()==ROOT else None
+    except (OSError,ValueError,KeyError):
+        return None
+
+def request(path,body=None,opener=None):
+    opener=opener or build_opener(ProxyHandler({}))
+    req=Request(BASE+path,data=json.dumps(body).encode() if body is not None else None,
+                headers={'Content-Type':'application/json'})
+    with opener.open(req,timeout=5) as r:return json.load(r)
+
+def status():
+    print('Managed PID:',alive() or 'not running')
+    visible_base=BASE
+    try:print(json.dumps(request('/health'),indent=2))
+    except OSError:print('Game is not reachable on loopback :8090')
+    try:visible_base=request('/api/content')['base']
+    except (OSError,KeyError):pass
+    print('Experience: '+visible_base+'/')
+    print('Everyone opens this link and progresses independently.')
+    print('Reset returns you to the welcome screen. Restart begins your experience again.')
+    print('Private access: existing SSH forwarding or the documented private room hub. No network settings are changed.')
+
+
+command=sys.argv[1] if len(sys.argv)>1 else 'status'
+if command=='restart':
+    subprocess.run([sys.executable,str(ROOT/'siege'),'stop'],check=True)
+    subprocess.run([sys.executable,str(ROOT/'siege'),'start'],check=True)
+    raise SystemExit(0)
+if command=='start':
+    DATA.mkdir(parents=True,exist_ok=True)
+    if not alive():
+        try:
+            import socket
+            with socket.socket() as probe:
+                # Match Uvicorn so closed client connections in TIME_WAIT do not
+                # look like another live owner during an immediate restart.
+                probe.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+                probe.bind(('127.0.0.1',8090))
+        except OSError:sys.exit('Port 8090 is occupied by another process. It was left untouched.')
+        with (DATA/'server.log').open('ab') as log:
+            env=dict(os.environ,SIEGE_DATA=str(DATA),SIEGE_PORT='8090',SIEGE_TIME_SCALE='1')
+            p=subprocess.Popen([str(ROOT/'.venv/bin/python'),'-m','revamp'],cwd=ROOT,env=env,stdout=log,stderr=log,start_new_session=True)
+        PID.write_text(json.dumps({'pid':p.pid,'start_ticks':started(p.pid)}));PID.chmod(0o600)
+        for _ in range(40):
+            try:
+                request('/health');break
+            except OSError:time.sleep(.25)
+        else:sys.exit('Startup failed. Inspect runtime/revamp/server.log. No other process was stopped.')
+    status()
+elif command=='stop':
+    pid=alive()
+    if pid:
+        os.kill(pid,signal.SIGTERM)
+        for _ in range(30):
+            if not alive():break
+            time.sleep(.2)
+        print('Stop requested for verified managed Cyber Siege process',pid)
+    else:print('No verified managed Cyber Siege process to stop.')
+elif command=='reset':
+    opener=build_opener(ProxyHandler({}),HTTPCookieProcessor(CookieJar()))
+    request('/api/login',{'password':(DATA/'first-launch-password.txt').read_text().strip()},opener)
+    code=sys.argv[2] if len(sys.argv)>2 else None
+    if not code:
+        rooms=request('/api/admin',opener=opener)['rooms']
+        if len(rooms)!=1:sys.exit('Specify the room: ./siege reset CODE')
+        code=rooms[0]['code']
+    request('/api/rooms/'+code+'/control',{'command':'reset'},opener)
+    print('Room',code,'reset. Reuse its station links, or open a new room for fresh participants.')
+elif command=='status':status()
+else:sys.exit('Usage: ./siege start | status | restart | reset CODE | stop')

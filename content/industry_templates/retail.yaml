@@ -1,0 +1,11 @@
+status: draft
+industry: Retail and consumer goods
+use_case: Explore local analysis of internal store operations reports.
+buyer: Store operations lead or data platform architect
+questions:
+- Which reports do teams review repeatedly?
+- Which data needs to remain in your infrastructure?
+- Who would choose a useful question for an evaluation?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

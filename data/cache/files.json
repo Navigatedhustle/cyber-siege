@@ -1,0 +1,246 @@
+{
+  "alert": "files",
+  "recorded_at": "2026-11-09T15:07:41.690513+00:00",
+  "session_label": "REHEARSAL",
+  "result": {
+    "data": {
+      "events": [
+        {
+          "explanation": "Email arrived from suspicious domain with HTML attachment.",
+          "log_ids": [
+            "EML9001"
+          ]
+        },
+        {
+          "explanation": "User opened the HTML attachment on their work device.",
+          "log_ids": [
+            "EDR9001"
+          ]
+        },
+        {
+          "explanation": "Browser accessed session cookies and sent them to an external domain.",
+          "log_ids": [
+            "EDR9002",
+            "NET9001"
+          ]
+        },
+        {
+          "explanation": "User signed in from a new network in the Netherlands without using MFA.",
+          "log_ids": [
+            "IDP9001"
+          ]
+        },
+        {
+          "explanation": "User accessed finance confidential files from an external IP address.",
+          "log_ids": [
+            "FIL9001"
+          ]
+        },
+        {
+          "explanation": "User performed a bulk download of many finance files totaling large size.",
+          "log_ids": [
+            "FIL9002"
+          ]
+        }
+      ],
+      "summary": "Attack began with a deceptive email, led to credential theft, unauthorized access, and large-scale data theft from finance systems.",
+      "summary_log_ids": [
+        "EML9001",
+        "EDR9001",
+        "EDR9002",
+        "NET9001",
+        "IDP9001",
+        "FIL9001",
+        "FIL9002"
+      ]
+    },
+    "model": "hero",
+    "model_name": "Nemotron 3 Super",
+    "lab": "NVIDIA",
+    "latency_seconds": 1.128630005987361,
+    "usage": {
+      "prompt_tokens": 2878,
+      "total_tokens": 3195,
+      "completion_tokens": 317,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "cached": false
+  },
+  "events": [
+    {
+      "elapsed": 0.21341608499642462,
+      "data": {
+        "agent": "data_access",
+        "status": "started",
+        "query": "data_access: source and 36 hour window; m.brooks, session and network anomalies; starting alert files",
+        "events_scanned": 1204
+      }
+    },
+    {
+      "elapsed": 0.21736926899757236,
+      "data": {
+        "agent": "identity",
+        "status": "started",
+        "query": "identity: source and 36 hour window; m.brooks, session and network anomalies; starting alert files",
+        "events_scanned": 1202
+      }
+    },
+    {
+      "elapsed": 0.2224122539628297,
+      "data": {
+        "agent": "endpoint",
+        "status": "started",
+        "query": "endpoint: source and 36 hour window; m.brooks, session and network anomalies; starting alert files",
+        "events_scanned": 2403
+      }
+    },
+    {
+      "elapsed": 0.22631756495684385,
+      "data": {
+        "agent": "email",
+        "status": "started",
+        "query": "email: source and 36 hour window; m.brooks, session and network anomalies; starting alert files",
+        "events_scanned": 1202
+      }
+    },
+    {
+      "elapsed": 6.974324106937274,
+      "data": {
+        "agent": "identity",
+        "status": "finding",
+        "finding": {
+          "summary": "User m.brooks signed in from a new network in the Netherlands without MFA using a session cookie, which is unusual compared to their regular sign-ins from the UK with MFA on a managed host.",
+          "log_ids": [
+            "IDP9001"
+          ],
+          "confidence": "medium"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 6.976833822904155,
+      "data": {
+        "agent": "identity",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 107
+      }
+    },
+    {
+      "elapsed": 7.305749620893039,
+      "data": {
+        "agent": "data_access",
+        "status": "finding",
+        "finding": {
+          "summary": "User m.brooks accessed finance confidential files from external IP 198.51.100.77 using session sess-fin-823, then performed bulk download of 428 files (2.7 GB).",
+          "log_ids": [
+            "FIL9001",
+            "FIL9002"
+          ],
+          "confidence": "medium"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.308265384985134,
+      "data": {
+        "agent": "data_access",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 156
+      }
+    },
+    {
+      "elapsed": 7.436150030000135,
+      "data": {
+        "agent": "endpoint",
+        "status": "finding",
+        "finding": {
+          "summary": "User opened an HTML attachment from email, then browser accessed session cookies and sent data to an external domain not seen in normal traffic.",
+          "log_ids": [
+            "EDR9001",
+            "EDR9002",
+            "NET9001"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 7.4387137949233875,
+      "data": {
+        "agent": "endpoint",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 182
+      }
+    },
+    {
+      "elapsed": 8.547030581976287,
+      "data": {
+        "agent": "email",
+        "status": "finding",
+        "finding": {
+          "summary": "Email from suspicious domain harb0rparts.example (zero instead of o) with HTML attachment, different sender IP pattern, and revised invoice subject.",
+          "log_ids": [
+            "EML9001"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.549553609918803,
+      "data": {
+        "agent": "email",
+        "status": "finding",
+        "finding": {
+          "summary": "Legitimate emails from summitcomponents.example and harborparts.example with PDF attachments, consistent user, host, IP, and SPF/DKIM pass.",
+          "log_ids": [
+            "EML0230",
+            "EML1002",
+            "EML0940",
+            "EML0575",
+            "EML0026",
+            "EML0039",
+            "EML9002"
+          ],
+          "confidence": "high"
+        },
+        "model": "hero"
+      }
+    },
+    {
+      "elapsed": 8.552104606991634,
+      "data": {
+        "agent": "email",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 283
+      }
+    },
+    {
+      "elapsed": 8.555474201915786,
+      "data": {
+        "agent": "lead",
+        "status": "started",
+        "query": "Connect verified specialist findings"
+      }
+    },
+    {
+      "elapsed": 13.805473230895586,
+      "data": {
+        "agent": "lead",
+        "status": "done",
+        "model": "hero",
+        "tokens_used": 317
+      }
+    }
+  ]
+}

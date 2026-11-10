@@ -1,0 +1,8 @@
+{
+  "verified_on": "2026-11-09",
+  "resources": [
+    {"title":"Explore HP ZGX Fury", "label":"Product overview", "url":"https://www.hp.com/us-en/workstations/ai-stations/zgx-fury-ai-station.html", "description":"Explore shared local AI development and inference."},
+    {"title":"HP Z Toolkit + Z Runtime", "label":"Software and workflows", "url":"https://www.hp.com/us-en/workstations/ai-stations/zgx-ai-stations-software.html", "description":"See HP tools for AI development and deployment."},
+    {"title":"Compare HP Z AI stations", "label":"Find the right fit", "url":"https://www.hp.com/us-en/workstations/ai-stations.html", "description":"Start a conversation about workload and team needs."}
+  ]
+}

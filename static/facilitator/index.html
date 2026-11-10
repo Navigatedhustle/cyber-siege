@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presenter controls | HP Cyber Siege</title>
+<link rel="icon" href="/static/brand/hp-logo-keyline.png">
+<link rel="stylesheet" href="/static/shared.css">
+<link rel="stylesheet" href="/static/facilitator/facilitator.css">
+</head>
+<body class="light facilitator-shell">
+<a class="skip-link" href="#main">Skip to Presenter controls</a>
+<aside class="control-sidebar">
+<a class="brand" href="/" aria-label="HP Cyber Siege home">
+<img class="hp-logo" src="/static/brand/hp-logo-keyline.png" alt="HP">
+<span class="brand-copy">
+<strong>Cyber Siege</strong>
+<small>HP ZGX Fury</small>
+</span>
+</a>
+<div class="sidebar-label">OPTIONAL ROOM DISPLAY</div>
+<nav id="phase-rail" aria-label="Workshop phases">
+<ol>
+<li>
+<span>01</span>Welcome the room</li>
+<li>
+<span>02</span>Make a first call</li>
+<li>
+<span>03</span>Investigate with AI</li>
+<li>
+<span>04</span>Reveal the story</li>
+<li>
+<span>05</span>Commit to an account</li>
+</ol>
+</nav>
+<div class="sidebar-bottom">
+<a href="/" class="sidebar-link">← Experience home</a>
+<p>HP LIMITLESS / 2026<br>A fictional incident. A real next step.</p>
+</div>
+</aside>
+<div class="control-workspace">
+<header class="control-header">
+<div>
+<p class="eyebrow">PRESENTER</p>
+<strong>Presenter controls</strong>
+</div>
+<div class="control-header-actions">
+<span id="health-status" class="health-status">Checking readiness</span>
+<a href="/screen" class="button secondary open-screen" target="_blank" rel="noopener">Open room screen <span aria-hidden="true">↗</span>
+</a>
+</div>
+</header>
+<main id="main">
+<div id="error" role="alert" class="error hidden">
+</div>
+<div id="toast" role="status" class="toast hidden">
+</div>
+<div id="console">
+<div class="console-top">
+<div class="session-kicker">
+<span id="badges">
+</span>
+<span id="session-label">YOUR WORKSHOP</span>
+</div>
+<button id="new-session" class="new-session">New workshop <span aria-hidden="true">＋</span>
+</button>
+</div>
+<section class="command-card" aria-labelledby="task-title">
+<div class="command-main">
+<p class="eyebrow" id="task-eyebrow">
+</p>
+<h1 id="task-title">
+</h1>
+<p id="task-description" class="task-description">
+</p>
+<div id="task-actions" class="task-actions">
+</div>
+<p id="task-hint" class="task-hint">
+</p>
+<div class="presenter-note">
+<span>SAY TO THE ROOM</span>
+<blockquote id="presenter-line">
+</blockquote>
+</div>
+</div>
+<aside id="task-side" class="task-side">
+</aside>
+</section>
+<div id="room-summary" class="room-summary">
+</div>
+<div class="workshop-grid">
+<section class="teams-panel">
+<div class="section-heading">
+<div>
+<p class="eyebrow">LIVE ROOM</p>
+<h2>Participants.</h2>
+</div>
+<span id="team-count" class="count-label">
+</span>
+</div>
+<div id="teams">
+</div>
+</section>
+<aside class="workshop-aside">
+<section class="readiness-panel">
+<p class="eyebrow">ONE FURY / LIVE READINESS</p>
+<h2 id="readiness-title">
+</h2>
+<div id="readiness-models">
+</div>
+<p id="readiness-detail">
+</p>
+</section>
+<section class="export-panel">
+<p class="eyebrow">TAKE IT FORWARD</p>
+<h3>Keep the commitments.</h3>
+<p>Download the account actions and results from this workshop.</p>
+<a class="export-link" href="/export?kind=commitments">Account commitments <span>CSV ↓</span>
+</a>
+<a class="export-link" href="/export?kind=cards">All Account Action Cards <span>PDF ZIP ↓</span>
+</a>
+<a class="export-link" href="/export?kind=scores">Participant scores <span>CSV ↓</span>
+</a>
+<a class="export-link" href="/export?kind=metrics">Measured session report <span>JSON ↓</span>
+</a>
+</section>
+</aside>
+</div>
+<details class="tool-panel" id="session-tools">
+<summary>
+<span>
+<strong>Session tools</strong>
+<small>Presentation navigation and room settings</small>
+</span>
+<span aria-hidden="true">＋</span>
+</summary>
+<div class="tool-content">
+<div class="tool-group">
+<p class="eyebrow">PRESENTATION TIMING</p>
+<div class="row">
+<button data-action="pause" id="pause-control" class="secondary">Pause timer</button>
+<button data-action="extend" class="secondary">Add one minute</button>
+<button data-action="previous" class="secondary">Previous phase</button>
+<button data-action="next" class="secondary">Next phase</button>
+</div>
+</div>
+<div class="tool-group">
+<p class="eyebrow">PRESENTER CONTROLS</p>
+<div class="row">
+<button data-action="twist" class="secondary">Introduce new event</button>
+<button data-action="lock" class="secondary">Lock decisions</button>
+<button data-action="leaderboard" class="secondary">Show / hide leaderboard</button>
+<button data-action="sound" class="secondary">Alert sound on / off</button>
+<button data-action="replay" class="secondary">Live / replay mode</button>
+</div>
+</div>
+<div class="tool-group">
+<p class="eyebrow">SESSION MANAGEMENT</p>
+<div class="row">
+<button id="new-live" class="secondary">New live workshop</button>
+<button id="new-rehearsal" class="secondary">New rehearsal</button>
+<button id="reset" class="danger">Reset this workshop</button>
+</div>
+<p class="tool-note">Starting a new workshop prepares a fresh set of individual experiences. Previous results remain stored.</p>
+</div>
+</div>
+</details>
+<details class="tool-panel">
+<summary>
+<span>
+<strong>Model health and measured compute</strong>
+<small>GPU feed, token sources, queues and inference details</small>
+</span>
+<span aria-hidden="true">＋</span>
+</summary>
+<div class="tool-content">
+<div id="room">
+</div>
+<div id="gpu" class="gpu-panel">
+</div>
+<div id="models" class="models">
+</div>
+<p id="session-detail" class="tool-note">
+</p>
+</div>
+</details>
+<details class="tool-panel">
+<summary>
+<span>
+<strong>Content and deployment checks</strong>
+<small id="content-summary">Checking approved workshop content</small>
+</span>
+<span aria-hidden="true">＋</span>
+</summary>
+<div class="tool-content">
+<ul id="warnings">
+</ul>
+<p class="tool-note">Real customer content is shown exactly as supplied. Carlos reviews draft templates and deployment facts before the event.</p>
+</div>
+</details>
+</div>
+</main>
+<footer>
+<span>HP ZGX Fury / Cyber Siege</span>
+<span class="connection" data-connection>Connecting…</span>
+</footer>
+</div>
+<dialog id="new-workshop" aria-labelledby="new-workshop-title">
+<form id="new-workshop-form">
+<p class="eyebrow">A FRESH START</p>
+<h2 id="new-workshop-title">Prepare a new workshop?</h2>
+<p>People can start their own experiences immediately. Your previous workshop and results stay saved.</p>
+<label for="workshop-mode">Workshop mode</label>
+<select id="workshop-mode" name="mode">
+<option value="LIVE">Live workshop</option>
+<option value="REHEARSAL">Labeled rehearsal</option>
+</select>
+<div class="dialog-actions">
+<button type="button" id="cancel-new" class="secondary">Keep current workshop</button>
+<button type="submit">Prepare workshop</button>
+</div>
+</form>
+</dialog>
+<script type="module" src="/static/facilitator/facilitator.js">
+</script>
+</body>
+</html>

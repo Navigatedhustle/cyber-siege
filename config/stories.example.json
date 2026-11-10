@@ -1,0 +1,10 @@
+{
+  "stories": [
+    {
+      "approved": false,
+      "title": "Approved internal story title",
+      "text": "Replace locally with exact approved wording. Keep to 420 characters. Never add customer names to the game world or model prompts.",
+      "approval_reference": "Internal approval owner and date"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+host:
+  value: ld71r20u1bws
+  confirm: true
+gpu:
+  value: NVIDIA GB300
+  confirm: true
+inference_location:
+  value: HP ZGX Fury in the data center
+  confirm: true
+network_path:
+  value: Tailscale Funnel HTTPS to FastAPI on 127.0.0.1:8080; model ports 8000 and
+    8001 remain loopback only
+  confirm: true
+hero_model:
+  value: nemotron-3-super (served ID); nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4
+    revision ff433f5493e25d631c9f12b5d55c674229923d02
+  confirm: true
+hero_serving_stack:
+  value: HP plus Infinity TensorRT LLM container
+  confirm: true
+challenger_model:
+  value: openai/gpt-oss-120b; pinned revision b5c939de8f754692c1647ca79fbf85e8c1e70f8a
+  confirm: true
+challenger_serving_stack:
+  value: NVIDIA vLLM container nvcr.io/nvidia/vllm:26.09-py3
+  confirm: true
+outbound_observation:
+  value: Infinity startup logs recorded FlashInfer kernel artifact downloads from
+    edge.urm.nvidia.com on 2026-11-09. Container socket snapshots were recorded. This
+    is not proof of zero egress.
+  confirm: true

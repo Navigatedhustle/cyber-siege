@@ -1,0 +1,11 @@
+status: draft
+industry: Financial services
+use_case: Explore local review of internal policy and risk documents.
+buyer: Risk operations lead or infrastructure architect
+questions:
+- Which internal reviews repeat every week?
+- Which documents must stay within your infrastructure?
+- Who would compare quality and response time in a small evaluation?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

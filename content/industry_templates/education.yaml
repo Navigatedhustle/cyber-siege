@@ -1,0 +1,11 @@
+status: draft
+industry: Higher education and research
+use_case: Explore local assistance with approved research documents.
+buyer: Research computing lead or campus IT architect
+questions:
+- Which research tasks need repeated model access?
+- Which datasets have access or location restrictions?
+- Who would measure whether a shared local system helps?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

@@ -1,0 +1,11 @@
+status: draft
+industry: Federal
+use_case: Explore local analysis of approved internal technical documents.
+buyer: Mission technology lead or infrastructure architect
+questions:
+- Which document review task repeats across your team?
+- What environment and approvals would an evaluation need?
+- Who would define a useful result for a limited test?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

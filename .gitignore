@@ -1,0 +1,12 @@
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+*.pyc
+runtime/
+exports/
+content/customer_story.md
+*.sqlite3*
+config/stories.local.json
+*.mp4
+*.webm

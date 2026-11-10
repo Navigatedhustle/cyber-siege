@@ -1,0 +1,11 @@
+status: draft
+industry: Technology and software
+use_case: Explore local assistance with internal engineering documentation.
+buyer: Engineering productivity lead or infrastructure architect
+questions:
+- Which documentation tasks interrupt engineers most often?
+- Which source material must stay within your systems?
+- Who would compare a local evaluation with the current workflow?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.

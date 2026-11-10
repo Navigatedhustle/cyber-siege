@@ -1,0 +1,11 @@
+status: draft
+industry: Manufacturing
+use_case: Explore local search across equipment manuals and service records.
+buyer: Plant operations lead or manufacturing IT architect
+questions:
+- Which equipment questions delay maintenance work?
+- Which manuals or records could support a small test?
+- Who would check the answers against real maintenance needs?
+opening_message: Could we discuss one repeated task involving sensitive internal data?
+  A ZGX Virtual Lab discussion could help us decide whether a local AI evaluation
+  would be useful.
